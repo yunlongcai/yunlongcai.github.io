@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/custom.css">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://replace-this-with-your-hugo-site.com//index.xml">
+    <link rel="stylesheet" href="http://yunlongcai.github.io/css/styles.css">
+    <link rel="stylesheet" href="http://yunlongcai.github.io/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://yunlongcai.github.io//index.xml">
 
     
-    <title>云龙&#39;s Blog</title>
-    <meta property='og:title' content="云龙&#39;s Blog">
+    <title>Hugo Blog Template for GitHub Pages</title>
+    <meta property='og:title' content="Hugo Blog Template for GitHub Pages">
     <meta property="og:type" content="website">
     
 
-    <meta property="og:url" content="http://replace-this-with-your-hugo-site.com/">
+    <meta property="og:url" content="http://yunlongcai.github.io/">
     
     
 
@@ -29,7 +29,7 @@
   <body>
 
     <header class="site">
-      <div class="title"><a href="http://replace-this-with-your-hugo-site.com/">云龙&#39;s Blog</a></div>
+      <div class="title"><a href="http://yunlongcai.github.io/">Hugo Blog Template for GitHub Pages</a></div>
     </header>
 
     <div class="container site">
@@ -43,12 +43,26 @@
           
           <div class="col-sm-6">
             <article class="li">
-  <a href="http://replace-this-with-your-hugo-site.com/post/promise-in-detail/" class="clearfix">
-    <div class="image" style="background-image: url(http://replace-this-with-your-hugo-site.com/images/default.jpg);"></div>
+  <a href="http://yunlongcai.github.io/post/promise-in-detail/" class="clearfix">
+    <div class="image" style="background-image: url(http://yunlongcai.github.io/images/default.jpg);"></div>
     <div class="detail">
       <time>Sat, Mar 19, 2016</time>
       <h2 class="title">promise in detail</h2>
       <div class="summary">Javascript Promises &hellip; In Wicked Detail 原文地址 我现在已经一直在 Javascript 使用 Promises 一段时间了。 它们一开始使用起来可能会有点脑袋绕不过来的感觉。 我现在能非常高效地使用 Promises， 但是实际上我并不能完全理解它们是怎么样工作的。 这篇文章就是我对他们的解析。 如果你能坚持到最后，你也一样能够明白 Promises 的工作方式。 我们将会逐步地实现一样 Promise 满足 Promise/A+ spec 的大部分要求，并且弄明白 promises 是如何满足异步编程的要求的。 这篇文章假定你已经对 Promises 比较熟悉了。 如果你不熟悉，那么可以去 promisejs.org 去看看。 Why? 为什么需要这么麻烦去了解 Promises 的实现细节到这个地步呢？ 真正的了解一样东西是怎么样工作能够使你更有效的使用他，并且在发生问题时能够更有效的调试问题。 我是因为我和一个同事在一个奇怪的 Promise 情景下被难住了才有了写这篇文章的想法。 如果当时我知道了我现在所知道，那么我们就不会被难住了。 The Simplest Use Case 让我们从实现一个最简单的 Promise 开始。 我们想从如下的使用方式： doSomething(function(value) { console.log('Got a value:' value); }); 变成如下的： doSomething().then(function(value) { console.log('Got a value:' value); }); 为了做到这一点，我们只需改变一下 doSomething()，从： function doSomething(callback) { var value = 42; callback(value); } 变成这个 &quot;Promise&quot; 的最基本的解决方法： function doSomething() { return { then: function(callback) { var value = 42; callback(value); } }; } 当然这只是回调模式的一个小小的语法糖，目前为止也是非常没有意义的语法糖。 但是这也是一个起点，我们已经开始无意中发现了在 Promises 后面的核心思想： Promises 将一个最终值的概念（符号）放进了一个对象中。 Promises capture the notion of an eventual value into an object.</div>
+    </div>
+  </a>
+</article>
+
+          </div>
+          
+          <div class="col-sm-6">
+            <article class="li">
+  <a href="http://yunlongcai.github.io/post/start-with-hugo/" class="clearfix">
+    <div class="image" style="background-image: url(http://yunlongcai.github.io/images/default.jpg);"></div>
+    <div class="detail">
+      <time>Sat, Mar 19, 2016</time>
+      <h2 class="title">start with hugo</h2>
+      <div class="summary">Start With Hugo 开始学习使用 Hugo</div>
     </div>
   </a>
 </article>
@@ -75,12 +89,24 @@
     <div class="content">
       
       <div class="sm"><article class="li">
-  <a href="http://replace-this-with-your-hugo-site.com/post/promise-in-detail/" class="clearfix">
-    <div class="image" style="background-image: url(http://replace-this-with-your-hugo-site.com/images/default.jpg);"></div>
+  <a href="http://yunlongcai.github.io/post/promise-in-detail/" class="clearfix">
+    <div class="image" style="background-image: url(http://yunlongcai.github.io/images/default.jpg);"></div>
     <div class="detail">
       <time>Sat, Mar 19, 2016</time>
       <h2 class="title">promise in detail</h2>
       <div class="summary">Javascript Promises &hellip; In Wicked Detail 原文地址 我现在已经一直在 Javascript 使用 Promises 一段时间了。 它们一开始使用起来可能会有点脑袋绕不过来的感觉。 我现在能非常高效地使用 Promises， 但是实际上我并不能完全理解它们是怎么样工作的。 这篇文章就是我对他们的解析。 如果你能坚持到最后，你也一样能够明白 Promises 的工作方式。 我们将会逐步地实现一样 Promise 满足 Promise/A+ spec 的大部分要求，并且弄明白 promises 是如何满足异步编程的要求的。 这篇文章假定你已经对 Promises 比较熟悉了。 如果你不熟悉，那么可以去 promisejs.org 去看看。 Why? 为什么需要这么麻烦去了解 Promises 的实现细节到这个地步呢？ 真正的了解一样东西是怎么样工作能够使你更有效的使用他，并且在发生问题时能够更有效的调试问题。 我是因为我和一个同事在一个奇怪的 Promise 情景下被难住了才有了写这篇文章的想法。 如果当时我知道了我现在所知道，那么我们就不会被难住了。 The Simplest Use Case 让我们从实现一个最简单的 Promise 开始。 我们想从如下的使用方式： doSomething(function(value) { console.log('Got a value:' value); }); 变成如下的： doSomething().then(function(value) { console.log('Got a value:' value); }); 为了做到这一点，我们只需改变一下 doSomething()，从： function doSomething(callback) { var value = 42; callback(value); } 变成这个 &quot;Promise&quot; 的最基本的解决方法： function doSomething() { return { then: function(callback) { var value = 42; callback(value); } }; } 当然这只是回调模式的一个小小的语法糖，目前为止也是非常没有意义的语法糖。 但是这也是一个起点，我们已经开始无意中发现了在 Promises 后面的核心思想： Promises 将一个最终值的概念（符号）放进了一个对象中。 Promises capture the notion of an eventual value into an object.</div>
+    </div>
+  </a>
+</article>
+</div>
+      
+      <div class="sm"><article class="li">
+  <a href="http://yunlongcai.github.io/post/start-with-hugo/" class="clearfix">
+    <div class="image" style="background-image: url(http://yunlongcai.github.io/images/default.jpg);"></div>
+    <div class="detail">
+      <time>Sat, Mar 19, 2016</time>
+      <h2 class="title">start with hugo</h2>
+      <div class="summary">Start With Hugo 开始学习使用 Hugo</div>
     </div>
   </a>
 </article>
@@ -97,13 +123,6 @@
     </div>
   </div>
   
-  <div class="section taxonomies">
-    <header><div class="title">tag</div></header>
-    <div class="content">
-      
-    </div>
-  </div>
-  
 
 </aside>
 
@@ -113,7 +132,7 @@
       </div>
 
     <footer class="site">
-      <p>&copy; 2016 Shekhar Gulati</p>
+      <p>&copy; 2016 Hugo Blog Template for GitHub Pages</p>
       <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
       <p>Theme <a href="https://github.com/dim0627/hugo_theme_robust" target="_blank">Robust</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
     </footer>

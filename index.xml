@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>云龙&#39;s Blog </title>
-    <link>http://replace-this-with-your-hugo-site.com/</link>
+    <title>Hugo Blog Template for GitHub Pages </title>
+    <link>http://yunlongcai.github.io/</link>
     <language>en-us</language>
-    <author>Shekhar Gulati</author>
+    <author></author>
     <rights>(C) 2016</rights>
     <updated>2016-03-19 22:08:03 &#43;0800 CST</updated>
 
@@ -12,10 +12,10 @@
       
         <item>
           <title>promise in detail</title>
-          <link>http://replace-this-with-your-hugo-site.com/post/promise-in-detail/</link>
+          <link>http://yunlongcai.github.io/post/promise-in-detail/</link>
           <pubDate>Sat, 19 Mar 2016 22:08:03 CST</pubDate>
-          <author>Shekhar Gulati</author>
-          <guid>http://replace-this-with-your-hugo-site.com/post/promise-in-detail/</guid>
+          <author></author>
+          <guid>http://yunlongcai.github.io/post/promise-in-detail/</guid>
           <description>
 
 &lt;h1 id=&#34;javascript-promises-in-wicked-detail:bd840da09a6d51a9bdf28dd22f839db5&#34;&gt;Javascript Promises &amp;hellip; In Wicked Detail&lt;/h1&gt;
@@ -724,6 +724,22 @@ invokeSomethingElse();
 &lt;p&gt;如果你喜欢这篇文章， 你可以去　Twitter 上订阅我，看看我啥时候又写了像这样的指导文章。&lt;/p&gt;
 
 &lt;h2 id=&#34;further-reading:bd840da09a6d51a9bdf28dd22f839db5&#34;&gt;Further Reading&lt;/h2&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>start with hugo</title>
+          <link>http://yunlongcai.github.io/post/start-with-hugo/</link>
+          <pubDate>Sat, 19 Mar 2016 20:57:17 CST</pubDate>
+          <author></author>
+          <guid>http://yunlongcai.github.io/post/start-with-hugo/</guid>
+          <description>
+
+&lt;h1 id=&#34;start-with-hugo:daa3eed4c80e28ffa600e8b884ff70da&#34;&gt;Start With Hugo&lt;/h1&gt;
+
+&lt;p&gt;开始学习使用 Hugo&lt;/p&gt;
 </description>
         </item>
       

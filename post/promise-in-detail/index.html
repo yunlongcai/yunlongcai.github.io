@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/custom.css">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://replace-this-with-your-hugo-site.com//index.xml">
+    <link rel="stylesheet" href="http://yunlongcai.github.io/css/styles.css">
+    <link rel="stylesheet" href="http://yunlongcai.github.io/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://yunlongcai.github.io//index.xml">
 
     
-    <title>promise in detail - 云龙&#39;s Blog</title>
-    <meta property='og:title' content="promise in detail - 云龙&#39;s Blog">
+    <title>promise in detail - Hugo Blog Template for GitHub Pages</title>
+    <meta property='og:title' content="promise in detail - Hugo Blog Template for GitHub Pages">
     <meta property="og:type" content="article">
     
 
-    <meta property="og:url" content="http://replace-this-with-your-hugo-site.com/post/promise-in-detail/">
+    <meta property="og:url" content="http://yunlongcai.github.io/post/promise-in-detail/">
     
     
 
@@ -29,7 +29,7 @@
   <body>
 
     <header class="site">
-      <div class="title"><a href="http://replace-this-with-your-hugo-site.com/">云龙&#39;s Blog</a></div>
+      <div class="title"><a href="http://yunlongcai.github.io/">Hugo Blog Template for GitHub Pages</a></div>
     </header>
 
     <div class="container site">
@@ -41,29 +41,29 @@
 
       <article class="single" itemscope="itemscope" itemtype="http://schema.org/Article">
 
-        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://replace-this-with-your-hugo-site.com/"/>
+        <meta itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" content="http://yunlongcai.github.io/"/>
         <meta itemprop="dateModified" content="2016-03-19T22:08:03&#43;08:00">
         <meta itemprop="headline" content="promise in detail">
         <meta itemprop="description" content="Javascript Promises &hellip; In Wicked Detail 原文地址 我现在已经一直在 Javascript 使用 Promises 一段时间了。 它们一开始使用起来可能会有点脑袋绕不过来的感觉。 我现在能非常高效地使用 Promises， 但是实际上我并不能完全理解它们是怎么样工作的。 这篇文章就是我对他们的解析。 如果你能坚持到最后，你也一样能够明白 Promises 的工作方式。 我们将会逐步地实现一样 Promise 满足 Promise/A&#43; spec 的大部分要求，并且弄明白 promises 是如何满足异步编程的要求的。 这篇文章假定你已经对 Promises 比较熟悉了。 如果你不熟悉，那么可以去 promisejs.org 去看看。 Why? 为什么需要这么麻烦去了解 Promises 的实现细节到这个地步呢？ 真正的了解一样东西是怎么样工作能够使你更有效的使用他，并且在发生问题时能够更有效的调试问题。 我是因为我和一个同事在一个奇怪的 Promise 情景下被难住了才有了写这篇文章的想法。 如果当时我知道了我现在所知道，那么我们就不会被难住了。 The Simplest Use Case 让我们从实现一个最简单的 Promise 开始。 我们想从如下的使用方式： doSomething(function(value) { console.log(&#39;Got a value:&#39; value); }); 变成如下的： doSomething().then(function(value) { console.log(&#39;Got a value:&#39; value); }); 为了做到这一点，我们只需改变一下 doSomething()，从： function doSomething(callback) { var value = 42; callback(value); } 变成这个 &quot;Promise&quot; 的最基本的解决方法： function doSomething() { return { then: function(callback) { var value = 42; callback(value); } }; } 当然这只是回调模式的一个小小的语法糖，目前为止也是非常没有意义的语法糖。 但是这也是一个起点，我们已经开始无意中发现了在 Promises 后面的核心思想： Promises 将一个最终值的概念（符号）放进了一个对象中。 Promises capture the notion of an eventual value into an object.">
-        <meta itemprop="url" content="http://replace-this-with-your-hugo-site.com/post/promise-in-detail/">
+        <meta itemprop="url" content="http://yunlongcai.github.io/post/promise-in-detail/">
         <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-          <meta itemprop="url" content="http://replace-this-with-your-hugo-site.com/images/default.jpg" />
+          <meta itemprop="url" content="http://yunlongcai.github.io/images/default.jpg" />
           <meta itemprop="width" content="800">
           <meta itemprop="height" content="800">
         </div>
         <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
           <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="http://replace-this-with-your-hugo-site.com/images/logo.jpg">
+            <meta itemprop="url" content="http://yunlongcai.github.io/images/logo.jpg">
             <meta itemprop="width" content="100">
             <meta itemprop="height" content="100">
           </div>
-          <meta itemprop="name" content="云龙&#39;s Blog">
+          <meta itemprop="name" content="Hugo Blog Template for GitHub Pages">
         </div>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <meta itemprop="name" content="Shekhar Gulati">
+          <meta itemprop="name" content="">
         </div>
 
-        <div class="image" style="background-image: url(http://replace-this-with-your-hugo-site.com/images/default.jpg);"></div>
+        <div class="image" style="background-image: url(http://yunlongcai.github.io/images/default.jpg);"></div>
 
         <header class="article-header">
           <time itemprop="datePublished" pubdate="pubdate" datetime="2016-03-19T22:08:03&#43;08:00">Sat, Mar 19, 2016</time>
@@ -787,25 +787,13 @@ invokeSomethingElse();
           
 
           <div class="section share">
-            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2freplace-this-with-your-hugo-site.com%2fpost%2fpromise-in-detail%2f&t=promise%20in%20detail" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2freplace-this-with-your-hugo-site.com%2fpost%2fpromise-in-detail%2f&text=promise%20in%20detail&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http%3a%2f%2freplace-this-with-your-hugo-site.com%2fpost%2fpromise-in-detail%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-            <a href="http://getpocket.com/edit?url=http%3a%2f%2freplace-this-with-your-hugo-site.com%2fpost%2fpromise-in-detail%2f&title=promise%20in%20detail" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+            <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2fyunlongcai.github.io%2fpost%2fpromise-in-detail%2f&t=promise%20in%20detail" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fyunlongcai.github.io%2fpost%2fpromise-in-detail%2f&text=promise%20in%20detail&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http%3a%2f%2fyunlongcai.github.io%2fpost%2fpromise-in-detail%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+            <a href="http://getpocket.com/edit?url=http%3a%2f%2fyunlongcai.github.io%2fpost%2fpromise-in-detail%2f&title=promise%20in%20detail" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
           </div>
 
           
-          
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-(function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  var disqus_shortname = 'Cai Yunlong';
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-          </script>
-          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-          <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
           
           
         </aside>
@@ -853,12 +841,24 @@ invokeSomethingElse();
     <div class="content">
       
       <div class="sm"><article class="li">
-  <a href="http://replace-this-with-your-hugo-site.com/post/promise-in-detail/" class="clearfix">
-    <div class="image" style="background-image: url(http://replace-this-with-your-hugo-site.com/images/default.jpg);"></div>
+  <a href="http://yunlongcai.github.io/post/promise-in-detail/" class="clearfix">
+    <div class="image" style="background-image: url(http://yunlongcai.github.io/images/default.jpg);"></div>
     <div class="detail">
       <time>Sat, Mar 19, 2016</time>
       <h2 class="title">promise in detail</h2>
       <div class="summary">Javascript Promises &hellip; In Wicked Detail 原文地址 我现在已经一直在 Javascript 使用 Promises 一段时间了。 它们一开始使用起来可能会有点脑袋绕不过来的感觉。 我现在能非常高效地使用 Promises， 但是实际上我并不能完全理解它们是怎么样工作的。 这篇文章就是我对他们的解析。 如果你能坚持到最后，你也一样能够明白 Promises 的工作方式。 我们将会逐步地实现一样 Promise 满足 Promise/A+ spec 的大部分要求，并且弄明白 promises 是如何满足异步编程的要求的。 这篇文章假定你已经对 Promises 比较熟悉了。 如果你不熟悉，那么可以去 promisejs.org 去看看。 Why? 为什么需要这么麻烦去了解 Promises 的实现细节到这个地步呢？ 真正的了解一样东西是怎么样工作能够使你更有效的使用他，并且在发生问题时能够更有效的调试问题。 我是因为我和一个同事在一个奇怪的 Promise 情景下被难住了才有了写这篇文章的想法。 如果当时我知道了我现在所知道，那么我们就不会被难住了。 The Simplest Use Case 让我们从实现一个最简单的 Promise 开始。 我们想从如下的使用方式： doSomething(function(value) { console.log('Got a value:' value); }); 变成如下的： doSomething().then(function(value) { console.log('Got a value:' value); }); 为了做到这一点，我们只需改变一下 doSomething()，从： function doSomething(callback) { var value = 42; callback(value); } 变成这个 &quot;Promise&quot; 的最基本的解决方法： function doSomething() { return { then: function(callback) { var value = 42; callback(value); } }; } 当然这只是回调模式的一个小小的语法糖，目前为止也是非常没有意义的语法糖。 但是这也是一个起点，我们已经开始无意中发现了在 Promises 后面的核心思想： Promises 将一个最终值的概念（符号）放进了一个对象中。 Promises capture the notion of an eventual value into an object.</div>
+    </div>
+  </a>
+</article>
+</div>
+      
+      <div class="sm"><article class="li">
+  <a href="http://yunlongcai.github.io/post/start-with-hugo/" class="clearfix">
+    <div class="image" style="background-image: url(http://yunlongcai.github.io/images/default.jpg);"></div>
+    <div class="detail">
+      <time>Sat, Mar 19, 2016</time>
+      <h2 class="title">start with hugo</h2>
+      <div class="summary">Start With Hugo 开始学习使用 Hugo</div>
     </div>
   </a>
 </article>
@@ -875,13 +875,6 @@ invokeSomethingElse();
     </div>
   </div>
   
-  <div class="section taxonomies">
-    <header><div class="title">tag</div></header>
-    <div class="content">
-      
-    </div>
-  </div>
-  
 
 </aside>
 
@@ -892,7 +885,7 @@ invokeSomethingElse();
       </div>
 
     <footer class="site">
-      <p>&copy; 2016 Shekhar Gulati</p>
+      <p>&copy; 2016 Hugo Blog Template for GitHub Pages</p>
       <p>Powered by <a href="http://gohugo.io" target="_blank">Hugo</a>,</p>
       <p>Theme <a href="https://github.com/dim0627/hugo_theme_robust" target="_blank">Robust</a> designed by <a href="http://yet.unresolved.xyz" target="_blank">Daisuke Tsuji</a></p>
     </footer>
